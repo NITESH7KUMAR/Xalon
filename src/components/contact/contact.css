@@ -1,11 +1,8 @@
 /* CSS */
-
 .contact {
     background: linear-gradient(to bottom, rgba(251, 247, 238, 0.518) 40%, rgba(248, 208, 248, 0.61) 50%, rgba(249, 220, 232, 0.63) 60%);
-    color: white;
-    
+    color: white;  
   }
-  
 .contact {
     text-align: center;
     padding: 20px;
@@ -14,9 +11,9 @@
   }
   
   .contact h1 {
-    font-size: 4.0rem;
+    font-size: 4.5rem;
     margin-bottom: 20px;
-    margin-top: 15px;
+    margin-top: 20px;
     color: #2d5e28;
   }
   .contact h3 {
