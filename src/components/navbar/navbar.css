@@ -9,7 +9,8 @@
     width: 100%;
     z-index: 1000;
     border-radius: 4px ;
-     border-bottom: 2px solid #110f0db9;
+    border-bottom: 2px solid #110f0db9;
+    flex-direction: column;
   }
 
 .navbar {
@@ -20,7 +21,7 @@
   }
 
   .logo img {
-    margin-top: 5px;
+    margin-top: -5.5px;
     border-radius: 30px;
     margin-left: 30px;
     height: 50px; 
@@ -78,6 +79,27 @@
     display: block;
   }
 
+  @media(max-width:910px){
+    .logo img{
+    margin-top: 5px;
+    height: 40px;
+  }
+  .logo1{
+    margin-top: 5px;
+    font-size: 30px;
+  }
+  .nav-links {
+  display: flex;
+  gap: 8px; 
+  list-style: none;
+  padding: 0;
+  margin: 15px 10px 0px 0px;
+}
+.nav-links li {
+  padding: 4px 8px; 
+  font-size: 18px;
+}
+  }
 @media (max-width: 767px) {
   .nav-links {
     background: linear-gradient(-2deg, #ebf8f7, #f4b56db9);

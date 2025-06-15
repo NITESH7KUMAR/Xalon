@@ -1,13 +1,20 @@
-import React from 'react';
+import { BrowserRouter as Router,Route,Routes,Navigate } from 'react-router-dom';
 import './App.css';
 import Navbar from './components/navbar/navbar.jsx';
-import Footer from './components/footer/footer.jsx';
+import Home from './components/home/home.jsx';
+import Contact from './components/contact/contact.jsx';
+
 function App() {
   return (
-    <div className="App">
+    <Router>
       <Navbar />
-      <Footer/>
-    </div>
+      <Routes>
+        <Route path='/' element={<Home/>}/>
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/home" element={<Navigate to="/" />} />
+        <Route path="*" element={<Navigate to="/" />} />
+      </Routes>
+    </Router>
   );
 }
 

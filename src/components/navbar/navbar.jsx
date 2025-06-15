@@ -1,4 +1,4 @@
-import react from 'react';
+import {Link} from 'react-router-dom';
 import './navbar.css';
 import logo from '../../assets/logo.png'
 function Navbar(){
@@ -11,13 +11,14 @@ function Navbar(){
         </div>
       <div className='logo1'>X A L O N</div>
    <ul class="nav-links">
-    <li class="nav-links1">Login</li>
-    <li class="nav-links1">Register</li>
-    <li class="nav-links1">Admin</li>
+    <li class="nav-links1"><Link to="/Login">Login</Link></li>
+    <li class="nav-links1"><Link to="/Register">Register</Link></li>
+    <li class="nav-links1"><Link to="/Admin">Admin</Link></li>
+    <li class="nav-links1"><Link to="/contact">Contact</Link></li>
    </ul>
    </nav>
    </header>
     </>
-  )
+  );
 }
 export default Navbar;
