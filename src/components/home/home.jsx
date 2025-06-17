@@ -1,6 +1,8 @@
 import React from "react";
 import "./home.css";
 import Footer from "../footer/footer";
+import WhyChooseUs from "./whyChooseUs/whyChooseUs";
+import TestimonialsSlider from "./testimonialSlider/TestimonialSlider";
 function Home() {
   return (
     <div className="home">
@@ -31,10 +33,10 @@ function Home() {
             <img src="/assets/logo.png" alt="Makeup" />
             <h3>Bridal & Party Makeup</h3>
           </div>
-          <div className="service-card">
+          {/* <div className="service-card">
             <img src="/assets/logo.png" alt="Manicure" />
             <h3>Manicure & Pedicure</h3>
-          </div>
+          </div> */}
           <div className="service-card">
             <img src="/assets/logo.png" alt="Spa" />
             <h3>Spa & Massage</h3>
@@ -43,30 +45,11 @@ function Home() {
       </section>
 
       <section className="why-choose-us">
-        <h2>Why Choose Us?</h2>
-        <ul>
-          <li>🏆 Certified Professionals</li>
-          <li>🛋️ Clean & Luxurious Ambience</li>
-          <li>💰 Affordable Packages</li>
-          <li>🌿 High-Quality Organic Products</li>
-          <li>📅 Online Booking Available</li>
-        </ul>
+        <WhyChooseUs/>
       </section>
 
       <section className="testimonials">
-        <h2>What Clients Say</h2>
-        <blockquote>
-          “The best salon experience I’ve ever had. Loved the ambience and
-          professionalism!”
-          <br />
-          <span>- Nitesh Kumar</span>
-        </blockquote>
-        <blockquote>
-          “I went for a haircut and came out with a new look and boosted
-          confidence!”
-          <br />
-          <span>- Sachin Bhanu</span>
-        </blockquote>
+        <TestimonialsSlider />
       </section>
 
       <section className="contact">

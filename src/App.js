@@ -1,4 +1,6 @@
 import { BrowserRouter as Router,Route,Routes,Navigate } from 'react-router-dom';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 import './App.css';
 import Navbar from './components/navbar/navbar.jsx';
 import Home from './components/home/home.jsx';
