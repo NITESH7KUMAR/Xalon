@@ -21,7 +21,7 @@
   }
 
   .logo img {
-    margin-top: -5.5px;
+    margin-top: -13px;
     border-radius: 30px;
     margin-left: 30px;
     height: 50px; 
@@ -33,7 +33,7 @@
     color: #02151b; 
     position: absolute;
     font-size:35px;
-    margin-top: -10px;
+    margin-top: -20px;
     left: 130px;
     cursor:pointer;
   }
@@ -58,7 +58,26 @@
     border: 1px solid #dd9246b9;
     transition: background-color 0.1s ease;
     margin-left: 20px;
+    font-size: 20px;
+
+  }
+   .nav-links button {
+    background-color: rgba(132, 237, 113, 0.762);
+    padding: 5px 15px;
+    border-radius: 5px;
+    border: 1px solid #dd9246b9;
+    transition: background-color 0.1s ease;
+    margin-left: 20px;
     font-size: 20px;;
+    margin-top: -10px;
+    cursor: pointer;
+    font-weight:600;
+    color: #2d2d2e;
+  }
+  .nav-links button:hover {
+    background-color: #bb3c0ec1;
+    cursor: pointer;
+    color :white;
   }
   
   .nav-links1{

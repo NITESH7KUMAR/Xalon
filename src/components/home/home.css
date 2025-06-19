@@ -10,6 +10,7 @@
   background:linear-gradient(120deg,#dcf7aa, #9fc3fc);
   padding: 30px 20px;
   border-radius: 12px;
+ 
  }
  .hero h1{
   font-size: 50px;
@@ -93,20 +94,37 @@ ul li {
   color: white;
   padding: 10px 20px;
   border: none;
-    border-radius: 8px;
+  border-radius: 8px;
   cursor: pointer;
   font-size: 16px;
+  margin-bottom: 50px;
 }
 .book-btn:hover {
   background-color: #b43e0d;
 }
-/* .contact {
- 
+.home-contact {
+    text-align: center;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    color: #9d0303;
+  
 }
-.contact h2{
+.home-contact h2{
   color: #323636;
   margin-bottom: 30px;
-  margin-top: -5px;
-  font-size: 80px;
+  margin-top: -20px;
+  font-size: 40px;
   box-shadow: 0 0 12px rgba(156, 24, 24, 0.1);
-} */
+}
+.home-contact p {
+  font-size: 18px;
+  margin-bottom: 20px;
+  color: #000;
+}
+.home-contact strong {
+  color: #ac0505;
+}
+.home-contact .icon {
+  font-size: 18px;
+  color: #f54a06;
+}

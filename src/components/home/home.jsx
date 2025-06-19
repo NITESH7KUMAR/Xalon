@@ -1,4 +1,5 @@
 import React from "react";
+import { FaPhone,FaLandmark} from 'react-icons/fa';
 import "./home.css";
 import Footer from "../footer/footer";
 import WhyChooseUs from "./whyChooseUs/whyChooseUs";
@@ -52,14 +53,14 @@ function Home() {
         <TestimonialsSlider />
       </section>
 
-      <section className="contact">
+      <section className="home-contact">
         <h2>Visit Us Today!</h2>
         <p>
           Step into <strong>Xalon</strong> and step out as the best version of
           yourself.
         </p>
-        <p> LPU </p>
-        <p>📞 Call: 9876543210</p>
+        <p> <FaLandmark className="icon"/> LPU </p>   
+        <p><FaPhone className="icon"/> Call: 9876543210</p>
         <button className="book-btn">Book Now</button>
       </section>
       <Footer />

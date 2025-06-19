@@ -1,0 +1,15 @@
+.login-container input[type="email"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ef1717;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.login-container input[type="email"]:focus {
+    border-color: #cf3a2a;
+    outline: none;
+    box-shadow: 0 0 5px rgba(158, 175, 76, 0.3);
+}

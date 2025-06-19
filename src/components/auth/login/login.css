@@ -1,0 +1,166 @@
+/* Overall container for the login page */
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.login-container {
+  position: relative;
+}
+
+.login-container {
+    width: 300px;
+    padding: 30px;
+background: linear-gradient(-2deg, #87f5e5d3, #f46d6db9);    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    display: fixed;
+}
+
+.login-container h2 {
+    color: #020202;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 35px;
+    margin-top: -5px;
+    margin-bottom: 30px;
+}
+
+.login-container label {
+    display: block;
+    font-size: 14px;
+    color: #0b0304;
+    margin-bottom: 20px;
+    text-align: left;
+    font-weight: 600;
+}
+
+.login-container input[type="text"],
+.login-container input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ef1717;
+    border-radius: 5px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.login-container input[type="text"]:focus,
+.login-container input[type="password"]:focus {
+    border-color: #cf3a2a; /* Green focus color */
+    outline: none;
+    box-shadow: 0 0 5px rgba(11, 218, 18, 0.3);
+}
+
+.login-container .close-btn  {
+    width: 15%;
+    padding: 5px;
+    background-color: #2e21e9eb; /* Green button color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 26px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+.login-container .submit-btn  {
+    width: 100%;
+    padding: 10px;
+    background-color: #4d0633e2; /* Green button color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.login-container button:hover {
+    background-color: #057ffa; 
+    color: black;/* Darker green on hover */
+}
+.login-container .close-btn:hover {
+    background-color: #eaff08; /* Darker green on hover */
+}
+
+.signup-link button {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #f05e1f; /* Green button color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.signup-link a {
+    text-decoration: none;
+    color: #0e140e; /* Green link color */
+    font-weight: bold;
+}
+
+.signup-link button:hover {
+    background-color: rgb(19, 101, 101);
+}
+
+.acc-reg {
+  display: block;
+  margin-top: 25px;
+  font-size: 14px;
+  color: #333;
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 600;
+}
+
+.register-link {
+  color: #d20707; /* Bootstrap-like blue */
+  cursor: pointer;
+  font-weight: 600;
+  margin-left: 5px;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.register-link:hover {
+  color: #0056b3;
+}
+
+password-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.toggle-password {
+  position: absolute;
+  right: 35px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: #007bff;
+  margin-top: 10px;
+  border-radius: 2px;
+}
+
+.login-container .toggle-password{
+   border-radius: 5px;
+    color: #0b0304;
+}
