@@ -13,14 +13,10 @@ function Navbar({ onLoginClick, onRegisterClick }) {
           <ul class="nav-links">
             <li class="nav-links1">
               <Link to="/Home">Home</Link>
-            </li>
-            
-              <button onClick={onLoginClick}>Login</button>
-            
-            
+            </li>  
+             <button onClick={onLoginClick}>Login</button>
               <button onClick={onRegisterClick}>Register</button>
             {" "}
-           
             <li class="nav-links1">
               <Link to="/Admin">Admin</Link>
             </li>

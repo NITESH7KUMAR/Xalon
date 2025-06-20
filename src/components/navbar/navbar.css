@@ -99,7 +99,7 @@
     display: block;
   }
 
-  @media(max-width:910px){
+  @media(max-width:1024px){
     .logo img{
     margin-top: 5px;
     height: 40px;
@@ -107,6 +107,7 @@
   .logo1{
     margin-top: 5px;
     font-size: 30px;
+    margin-left: -35px;
   }
   .nav-links {
   display: flex;
@@ -119,7 +120,12 @@
   padding: 4px 8px; 
   font-size: 18px;
 }
+.nav-links button {
+  padding: 4px 8px;
+  font-size: 18px;
   }
+}
+
 @media (max-width: 767px) {
   .nav-links {
     background: linear-gradient(-2deg, #ebf8f7, #f4b56db9);
@@ -147,6 +153,12 @@
   margin-top: 5px;
   margin-bottom: 5px;  
 }
+.nav-links button{
+  padding: 4px 8px; 
+  font-size: 15px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
 }
 @media (max-width: 495px) {
   .nav-links {
@@ -164,13 +176,23 @@
     padding: 2px 5px;
     left: 50%;
     transform: translateX(-30%);
-
+}
+.nav-links button {
+    padding: 3px 5px;
+    font-size: 10px;
+    left: 50%;
+    transform: translateX(-30%);
 }
 }
 
 @media (max-width: 380px) { 
     .nav-links li {
         font-size: 8px;
+        margin-right: -10px;
+    }
+    .nav-links button {
+        font-size: 8px;
+        padding-top: 2px;
         margin-right: -10px;
     }
     .header{
