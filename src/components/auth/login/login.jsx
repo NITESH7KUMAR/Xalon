@@ -15,7 +15,7 @@ function Login({ onClose, onLogin, onSwitchToRegister }) {
     setLoading(true);
 
     axios
-      .post("http://localhost:8000/Login.php", {
+      .post("https://xalon-backend.onrender.com/api/login", {
         identifier,
         password,
       })
