@@ -32,7 +32,10 @@ function Navbar({
 
         <ul className="nav-links">
           {userType === "user" && (
-            <button className="nav-button" onClick={() => handleProtectedNav("/myappointments")}>
+            <button
+              className="nav-button"
+              onClick={() => handleProtectedNav("/myappointments")}
+            >
               My Appointments
             </button>
           )}
@@ -44,6 +47,9 @@ function Navbar({
               <li className="nav-links1">
                 <Link to="/admin">Admin</Link>
               </li>
+              <Link to="/home">
+                <FaHome className="icon" />
+              </Link>
             </>
           )}
 
@@ -51,6 +57,9 @@ function Navbar({
             <>
               <button onClick={onLogoutClick}>Logout</button>
               <li className="nav-links1 username">Hi, {username}</li>
+              <Link to="/home">
+                <FaHome className="icon" />
+              </Link>
             </>
           )}
 
@@ -66,10 +75,6 @@ function Navbar({
           <li className="nav-links1">
             <Link to="/contact">Contact</Link>
           </li>
-
-          <Link to="/home">
-            <FaHome className="icon" />
-          </Link>
         </ul>
       </nav>
     </header>

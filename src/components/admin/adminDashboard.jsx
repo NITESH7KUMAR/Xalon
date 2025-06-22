@@ -4,7 +4,6 @@ import "./adminDashboard.css";
 function AdminDashboard() {
   const [appointments, setAppointments] = useState([]);
 
-  // Fetch appointments from backend
   useEffect(() => {
     fetchAppointments();
   }, []);
@@ -19,49 +18,49 @@ function AdminDashboard() {
     }
   };
 
-  // Accept/Reject appointment and update status
   const updateStatus = async (id, status) => {
+    const route = status === "Accepted" ? "accept" : "reject";
     try {
-      const res = await fetch(`https://xalon-backend.onrender.com/api/admin/${status.toLowerCase()}/${id}`, {
+      const res = await fetch(`https://xalon-backend.onrender.com/api/admin/${route}/${id}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
       });
 
       if (res.ok) {
-        fetchAppointments(); // refresh list
+        fetchAppointments();
       } else {
-        alert("❌ Failed to update status");
+        alert("Failed to update status");
       }
     } catch (err) {
-      alert("❌ Error: " + err.message);
+      alert("Error: " + err.message);
     }
   };
 
   return (
     <div className="admin-dashboard">
-      <h2>👨‍💼 Admin Dashboard - Manage Appointments</h2>
-      {appointments.length === 0 ? (
-        <p>No appointments yet.</p>
-      ) : (
-        appointments.map((a, idx) => (
-          <div key={idx} className="appointment-card">
-            <p><strong>Name:</strong> {a.name}</p>
-            <p><strong>Email:</strong> {a.email}</p>
-            <p><strong>Phone:</strong> {a.phone}</p>
-            <p><strong>Date:</strong> {a.date}</p>
-            <p><strong>Time:</strong> {a.time}</p>
-            <p><strong>Status:</strong> {a.status}</p>
-            <p><strong>Services:</strong> {a.services.join(", ")}</p>
+      <h2>👨‍💼 Admin - Manage Appointments</h2>
+      {appointments.map((a, idx) => (
+        <div key={idx} className="appointment-card">
+          <p><strong>Name:</strong> {a.name}</p>
+          <p><strong>Email:</strong> {a.email}</p>
+          <p><strong>Phone:</strong> {a.phone}</p>
+          <p><strong>Date:</strong> {a.date}</p>
+          <p><strong>Time:</strong> {a.time}</p>
+          <p><strong>Services:</strong> {a.services.join(", ")}</p>
+          <p><strong>Status:</strong> 
+            <span className={`status-tag ${a.status.toLowerCase()}`}>
+              {a.status}
+            </span>
+          </p>
 
-            {a.status === "Pending" && (
-              <div className="admin-actions">
-                <button onClick={() => updateStatus(a._id, "Accepted")} className="accept-btn">✅ Accept</button>
-                <button onClick={() => updateStatus(a._id, "Rejected")} className="reject-btn">❌ Reject</button>
-              </div>
-            )}
-          </div>
-        ))
-      )}
+          {a.status === "Pending" && (
+            <div className="button-group">
+              <button onClick={() => updateStatus(a._id, "Accepted")} className="accept-btn">✅ Accept</button>
+              <button onClick={() => updateStatus(a._id, "Rejected")} className="reject-btn">❌ Reject</button>
+            </div>
+          )}
+        </div>
+      ))}
     </div>
   );
 }
