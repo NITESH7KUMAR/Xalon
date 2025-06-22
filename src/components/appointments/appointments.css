@@ -1,0 +1,75 @@
+.my-appointments-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.my-appointments-container h2 {
+  text-align: center;
+  color: #4f46e5;
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.no-appointments {
+  text-align: center;
+  font-size: 16px;
+  color: #6b7280;
+}
+
+.appointment-card {
+  background-color: #ffffff;
+  border: 1px solid #d1d5db;
+  padding: 20px;
+  margin-bottom: 15px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s ease;
+}
+
+.appointment-card:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.appointment-card p {
+  margin: 6px 0;
+  font-size: 16px;
+  color: #111827;
+}
+
+.appointment-card strong {
+  color: #374151;
+}
+
+.appointment-status {
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 6px;
+  display: inline-block;
+}
+
+.appointment-status.pending {
+  background-color: #fef3c7;
+  color: #b45309;
+}
+
+.appointment-status.accepted {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .appointment-card {
+    padding: 15px;
+  }
+
+  .my-appointments-container h2 {
+    font-size: 22px;
+  }
+
+  .appointment-card p {
+    font-size: 14px;
+  }
+}

@@ -104,13 +104,18 @@
   font-weight: bold;          
   margin-left: 10px;           
   padding: 6px 12px;                    
-  background-color: #908017;  
+  background-color: #179054;  
   transition: background-color 0.3s ease;
 }
 
 .username:hover {
   background-color: #519d8d;   
   cursor: default;            
+}
+.icon{
+  color:#070504;
+  font-size: 30px;
+  
 }
 
 /* //reponsive */
@@ -185,8 +190,8 @@
     transform: translateX(-50%);
     justify-content: center;
     display: flex;
-    padding: 2px 5px 0px 0px;
-    margin: 0;
+    padding: 2px 5px;
+    margin: auto;
 }
 .nav-links li{
    font-size: 10px;
@@ -198,14 +203,22 @@
     padding: 3px 5px;
     font-size: 10px;
     left: 50%;
-    transform: translateX(-30%);
+    transform: translateX(-20%);
+}
+.icon{
+  font-size: 20px;
+
 }
 }
 
 @media (max-width: 380px) { 
+  .nav-links{
+ gap: 2px;
+  }
     .nav-links li {
         font-size: 8px;
         margin-right: -10px;
+       ;
     }
     .nav-links button {
         font-size: 8px;

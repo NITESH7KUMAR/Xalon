@@ -1,8 +1,25 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { FaHome } from "react-icons/fa";
 import "./navbar.css";
 import logo from "../../assets/logo.png";
 
-function Navbar({ loggedIn, username, onLoginClick, onRegisterClick, onLogoutClick }) {
+function Navbar({
+  loggedIn,
+  username,
+  onLoginClick,
+  onRegisterClick,
+  onLogoutClick,
+}) {
+  const navigate = useNavigate();
+
+  const handleProtectedNav = (path) => {
+    if (loggedIn) {
+      navigate(path);
+    } else {
+      onLoginClick(); // Show login modal
+    }
+  };
+
   return (
     <header className="header">
       <nav className="navbar">
@@ -11,10 +28,13 @@ function Navbar({ loggedIn, username, onLoginClick, onRegisterClick, onLogoutCli
         </div>
         <div className="logo1">X A L O N</div>
 
-        <ul className="nav-links">
-          <li className="nav-links1">
-            <Link to="/Home">Home</Link>
-          </li>
+        <ul className="nav-links">  
+          <button
+            className="nav-button"
+            onClick={() => handleProtectedNav("/myappointments")}
+          >
+            My Appointments
+          </button>
 
           {!loggedIn ? (
             <>
@@ -34,6 +54,10 @@ function Navbar({ loggedIn, username, onLoginClick, onRegisterClick, onLogoutCli
           <li className="nav-links1">
             <Link to="/contact">Contact</Link>
           </li>
+            <Link to="/Home">
+              <FaHome className="icon" />
+            </Link> 
+
         </ul>
       </nav>
     </header>

@@ -8,17 +8,20 @@ import {
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./App.css";
+
 import Navbar from "./components/navbar/navbar.jsx";
 import Home from "./components/home/home.jsx";
 import Login from "./components/auth/login/login.jsx";
-import Contact from "./components/contact/contact.jsx";
 import Register from "./components/auth/register/register.jsx";
+import Contact from "./components/contact/contact.jsx";
+import BookPage from "./components/book/book.jsx";
+import MyAppointments from "./components/appointments/appointments.jsx";
 
 function App() {
   const [showLogin, setShowLogin] = useState(false);
   const [showRegister, setShowRegister] = useState(false);
-  const [loggedIn, setLoggedIn] = useState(false);
-  const [username, setUsername] = useState("");
+  const [loggedIn, setLoggedIn] = useState(!!localStorage.getItem("username"));
+  const [username, setUsername] = useState(localStorage.getItem("username") || "");
 
   return (
     <Router>
@@ -66,8 +69,19 @@ function App() {
       )}
 
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route
+          path="/"
+          element={<Home loggedIn={loggedIn} onLoginClick={() => setShowLogin(true)} />}
+        />
         <Route path="/home" element={<Navigate to="/" />} />
+        <Route
+          path="/book"
+          element={loggedIn ? <BookPage username={username} /> : <Navigate to="/" />}
+        />
+        <Route
+          path="/myappointments"
+          element={loggedIn ? <MyAppointments username={username} /> : <Navigate to="/" />}
+        />
         <Route path="/contact" element={<Contact />} />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>

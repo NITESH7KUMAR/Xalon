@@ -52,7 +52,7 @@ function Register({ onClose, onSwitchToLogin }) {
 
   return (
     <div className="modal-overlay">
-      <div className="register-container">
+      <div className="login-container">
         <button className="close-btn" onClick={onClose}>×</button>
         <h2>Register</h2>
         <form onSubmit={handleSignup}>

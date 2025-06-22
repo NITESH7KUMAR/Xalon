@@ -1,10 +1,22 @@
 import React from "react";
-import { FaPhone,FaLandmark} from 'react-icons/fa';
+import { useNavigate } from "react-router-dom";
+import { FaPhone, FaLandmark } from 'react-icons/fa';
 import "./home.css";
 import Footer from "../footer/footer";
 import WhyChooseUs from "./whyChooseUs/whyChooseUs";
 import TestimonialsSlider from "./testimonialSlider/TestimonialSlider";
-function Home() {
+
+function Home({ loggedIn, onLoginClick }) {
+  const navigate = useNavigate();
+
+  const handleBook = () => {
+    if (loggedIn) {
+      navigate("/book");
+    } else {
+      onLoginClick(); // Open login modal
+    }
+  };
+
   return (
     <div className="home">
       <section className="hero">
@@ -12,7 +24,7 @@ function Home() {
           Welcome to <span className="brand">Xalon</span> - Where Beauty begins
         </h1>
         <p>Your One-Stop Destination for Hair, Skin & Style</p>
-        <button className="book-btn">Book Now</button>
+        <button className="book-btn" onClick={handleBook}>Book Now</button>
       </section>
 
       <section className="services">
@@ -34,10 +46,6 @@ function Home() {
             <img src="/assets/logo.png" alt="Makeup" />
             <h3>Bridal & Party Makeup</h3>
           </div>
-          {/* <div className="service-card">
-            <img src="/assets/logo.png" alt="Manicure" />
-            <h3>Manicure & Pedicure</h3>
-          </div> */}
           <div className="service-card">
             <img src="/assets/logo.png" alt="Spa" />
             <h3>Spa & Massage</h3>
@@ -59,12 +67,14 @@ function Home() {
           Step into <strong>Xalon</strong> and step out as the best version of
           yourself.
         </p>
-        <p> <FaLandmark className="icon"/> LPU </p>   
-        <p><FaPhone className="icon"/> Call: 9876543210</p>
-        <button className="book-btn">Book Now</button>
+        <p><FaLandmark className="icon" /> LPU</p>
+        <p><FaPhone className="icon" /> Call: 9876543210</p>
+        <button className="book-btn" onClick={handleBook}>Book Now</button>
       </section>
+
       <Footer />
     </div>
   );
 }
+
 export default Home;

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { FaAward, FaCouch, FaMoneyBillWave, FaLeaf, FaCalendarCheck } from 'react-icons/fa';
+import {FaAward, FaCouch, FaMoneyBillWave, FaLeaf, FaCalendarCheck } from 'react-icons/fa';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import './whyChooseUs.css'; 
