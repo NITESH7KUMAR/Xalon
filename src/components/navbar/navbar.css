@@ -99,6 +99,22 @@
     display: block;
   }
 
+  .username {
+  color: #1900fa;              
+  font-weight: bold;          
+  margin-left: 10px;           
+  padding: 6px 12px;                    
+  background-color: #908017;  
+  transition: background-color 0.3s ease;
+}
+
+.username:hover {
+  background-color: #519d8d;   
+  cursor: default;            
+}
+
+/* //reponsive */
+
   @media(max-width:1024px){
     .logo img{
     margin-top: 5px;
@@ -125,6 +141,7 @@
   font-size: 18px;
   }
 }
+
 
 @media (max-width: 767px) {
   .nav-links {

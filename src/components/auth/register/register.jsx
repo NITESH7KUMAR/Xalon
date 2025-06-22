@@ -38,7 +38,7 @@ function Register({ onClose, onSwitchToLogin }) {
         if (response.data.message) {
           alert(response.data.message);
           onClose();
-          onSwitchToLogin();
+          onSwitchToLogin(); // show login modal
         } else {
           alert("Unexpected server response.");
         }
@@ -46,13 +46,13 @@ function Register({ onClose, onSwitchToLogin }) {
       .catch((error) => {
         setLoading(false);
         console.error("Signup error:", error);
-        setError("Signup failed. Try again.");
+        setError("Signup failed. Please try again.");
       });
   };
 
   return (
     <div className="modal-overlay">
-      <div className="login-container">
+      <div className="register-container">
         <button className="close-btn" onClick={onClose}>×</button>
         <h2>Register</h2>
         <form onSubmit={handleSignup}>
@@ -65,6 +65,7 @@ function Register({ onClose, onSwitchToLogin }) {
               required
             />
           </label>
+
           <label>
             Email:
             <input
@@ -74,6 +75,7 @@ function Register({ onClose, onSwitchToLogin }) {
               required
             />
           </label>
+
           <label>
             Password:
             <div className="password-wrapper">
@@ -85,13 +87,14 @@ function Register({ onClose, onSwitchToLogin }) {
               />
               <button
                 type="button"
-                onClick={() => setShowPassword(!showPassword)}
                 className="toggle-password"
+                onClick={() => setShowPassword(!showPassword)}
               >
                 {showPassword ? "Hide" : "Show"}
               </button>
             </div>
           </label>
+
           <button className="submit-btn" type="submit" disabled={loading}>
             {loading ? "Registering..." : "Sign Up"}
           </button>

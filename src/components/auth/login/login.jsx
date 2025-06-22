@@ -23,8 +23,9 @@ function Login({ onClose, onLogin, onSwitchToRegister }) {
         setLoading(false);
         if (response.data.success) {
           alert("Welcome back!");
-          localStorage.setItem("username", response.data.username);
-          onLogin();
+          const user = response.data.username;
+          localStorage.setItem("username", user);
+          onLogin(user);
           onClose();
           navigate("/");
         } else {

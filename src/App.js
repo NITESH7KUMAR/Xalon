@@ -17,25 +17,35 @@ import Register from "./components/auth/register/register.jsx";
 function App() {
   const [showLogin, setShowLogin] = useState(false);
   const [showRegister, setShowRegister] = useState(false);
+  const [loggedIn, setLoggedIn] = useState(false);
+  const [username, setUsername] = useState("");
 
   return (
     <Router>
       <Navbar
-         onLoginClick={() => {
-        setShowRegister(false); // hide register
-        setShowLogin(true);    // show login
-      }}
-      onRegisterClick={() => {
-        setShowLogin(false);   // hide login
-        setShowRegister(true); // show register
-      }}
+        loggedIn={loggedIn}
+        username={username}
+        onLoginClick={() => {
+          setShowRegister(false);
+          setShowLogin(true);
+        }}
+        onRegisterClick={() => {
+          setShowLogin(false);
+          setShowRegister(true);
+        }}
+        onLogoutClick={() => {
+          setLoggedIn(false);
+          setUsername("");
+          localStorage.removeItem("username");
+        }}
       />
 
-      {/* Login Modal */}
       {showLogin && (
         <Login
           onClose={() => setShowLogin(false)}
-          onLogin={() => {
+          onLogin={(user) => {
+            setLoggedIn(true);
+            setUsername(user);
             setShowLogin(false);
           }}
           onSwitchToRegister={() => {
@@ -45,7 +55,6 @@ function App() {
         />
       )}
 
-      {/* Register Modal */}
       {showRegister && (
         <Register
           onClose={() => setShowRegister(false)}
@@ -65,4 +74,5 @@ function App() {
     </Router>
   );
 }
+
 export default App;
