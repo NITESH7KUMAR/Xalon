@@ -1,3 +1,4 @@
+// src/components/navbar/navbar.jsx
 import { Link, useNavigate } from "react-router-dom";
 import { FaHome } from "react-icons/fa";
 import "./navbar.css";
@@ -6,6 +7,7 @@ import logo from "../../assets/logo.png";
 function Navbar({
   loggedIn,
   username,
+  userType,
   onLoginClick,
   onRegisterClick,
   onLogoutClick,
@@ -13,10 +15,10 @@ function Navbar({
   const navigate = useNavigate();
 
   const handleProtectedNav = (path) => {
-    if (loggedIn) {
+    if (loggedIn && userType === "user") {
       navigate(path);
     } else {
-      onLoginClick(); // Show login modal
+      onLoginClick();
     }
   };
 
@@ -28,36 +30,46 @@ function Navbar({
         </div>
         <div className="logo1">X A L O N</div>
 
-        <ul className="nav-links">  
-          <button
-            className="nav-button"
-            onClick={() => handleProtectedNav("/myappointments")}
-          >
-            My Appointments
-          </button>
+        <ul className="nav-links">
+          {userType === "user" && (
+            <button className="nav-button" onClick={() => handleProtectedNav("/myappointments")}>
+              My Appointments
+            </button>
+          )}
 
-          {!loggedIn ? (
+          {!loggedIn && (
             <>
               <button onClick={onLoginClick}>Login</button>
               <button onClick={onRegisterClick}>Register</button>
               <li className="nav-links1">
-                <Link to="/Admin">Admin</Link>
+                <Link to="/admin">Admin</Link>
               </li>
             </>
-          ) : (
+          )}
+
+          {loggedIn && userType === "user" && (
             <>
               <button onClick={onLogoutClick}>Logout</button>
               <li className="nav-links1 username">Hi, {username}</li>
             </>
           )}
 
+          {loggedIn && userType === "admin" && (
+            <>
+              <button onClick={onLogoutClick}>Logout</button>
+              <li className="nav-links1">
+                <Link to="/admin/dashboard">Dashboard</Link>
+              </li>
+            </>
+          )}
+
           <li className="nav-links1">
             <Link to="/contact">Contact</Link>
           </li>
-            <Link to="/Home">
-              <FaHome className="icon" />
-            </Link> 
 
+          <Link to="/home">
+            <FaHome className="icon" />
+          </Link>
         </ul>
       </nav>
     </header>

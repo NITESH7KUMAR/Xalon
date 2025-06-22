@@ -50,15 +50,38 @@
 }
 
 .appointment-status.pending {
-  background-color: #fef3c7;
-  color: #b45309;
+  color: #0f0c0a;
+}
+
+
+.appointment-status {
+  font-weight: bold;
+  padding: 3px 8px;
+  border-radius: 5px;
+  color: white;
+}
+
+.appointment-status.pending {
+  background-color: orange;
 }
 
 .appointment-status.accepted {
-  background-color: #d1fae5;
-  color: #065f46;
+  background-color: green;
 }
 
+.appointment-status.rejected {
+  background-color: red;
+}
+
+.cancel-btn {
+  margin-top: 10px;
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+}
 /* Responsive Design */
 @media (max-width: 768px) {
   .appointment-card {

@@ -4,6 +4,7 @@ import "./book.css";
 function BookPage() {
   const [formData, setFormData] = useState({
     name: "",
+    email: "",        // ✅ Added email field
     phone: "",
     date: "",
     time: "",
@@ -37,17 +38,19 @@ function BookPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch("http://localhost:10000/book", {
+      const res = await fetch(`https://xalon-backend.onrender.com/api/book`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({ ...formData, status: "Pending" }),
       });
+
       if (res.ok) {
         alert("✅ Appointment booked successfully!");
         setFormData({
           name: "",
+          email: "",
           phone: "",
           date: "",
           time: "",
@@ -55,7 +58,8 @@ function BookPage() {
           services: [],
         });
       } else {
-        alert("❌ Booking failed!");
+        const errData = await res.json();
+        alert("❌ Booking failed! " + (errData?.message || ""));
       }
     } catch (err) {
       alert("Error: " + err.message);
@@ -66,12 +70,49 @@ function BookPage() {
     <div className="book-form-container">
       <h2>🗓️ Book Appointment</h2>
       <form onSubmit={handleSubmit} className="book-form">
-        <input name="name" placeholder="Name" value={formData.name} onChange={handleChange} required />
-        <input name="phone" placeholder="Phone Number" value={formData.phone} onChange={handleChange} required />
-        <input type="date" name="date" value={formData.date} onChange={handleChange} required />
-        <input type="time" name="time" value={formData.time} onChange={handleChange} required />
+        <input
+          name="name"
+          placeholder="Name"
+          value={formData.name}
+          onChange={handleChange}
+          required
+        />
+        <input
+          name="email"
+          placeholder="Email"
+          value={formData.email}
+          onChange={handleChange}
+          type="email"
+          required
+        />
+        <input
+          name="phone"
+          placeholder="Phone Number"
+          value={formData.phone}
+          onChange={handleChange}
+          required
+        />
+        <input
+          type="date"
+          name="date"
+          value={formData.date}
+          onChange={handleChange}
+          required
+        />
+        <input
+          type="time"
+          name="time"
+          value={formData.time}
+          onChange={handleChange}
+          required
+        />
 
-        <select name="gender" value={formData.gender} onChange={handleChange} required>
+        <select
+          name="gender"
+          value={formData.gender}
+          onChange={handleChange}
+          required
+        >
           <option value="">Select Gender</option>
           <option value="male">Male</option>
           <option value="female">Female</option>
