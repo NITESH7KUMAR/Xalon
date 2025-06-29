@@ -5,7 +5,9 @@ import {
   Route,
   Routes,
   Navigate,
+  useLocation,
 } from "react-router-dom";
+
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./App.css";
@@ -20,7 +22,11 @@ import MyAppointments from "./components/appointments/appointments.jsx";
 import AdminLogin from "./components/admin/admin.jsx";
 import AdminDashboard from "./components/admin/adminDashboard.jsx";
 
-function App() {
+// Wrapping the app in a custom component to use `useLocation`
+function AppWrapper() {
+  const location = useLocation();
+  const isAdminPage = location.pathname.startsWith("/admin");
+
   const [showLogin, setShowLogin] = useState(false);
   const [showRegister, setShowRegister] = useState(false);
   const [loggedIn, setLoggedIn] = useState(!!localStorage.getItem("username"));
@@ -36,23 +42,27 @@ function App() {
   };
 
   return (
-    <Router>
+    <>
       <Navbar
         loggedIn={loggedIn}
         username={username}
         userType={userType}
         onLoginClick={() => {
-          setShowRegister(false);
-          setShowLogin(true);
+          if (!isAdminPage) {
+            setShowRegister(false);
+            setShowLogin(true);
+          }
         }}
         onRegisterClick={() => {
-          setShowLogin(false);
-          setShowRegister(true);
+          if (!isAdminPage) {
+            setShowLogin(false);
+            setShowRegister(true);
+          }
         }}
         onLogoutClick={handleLogout}
       />
 
-      {showLogin && (
+      {showLogin && !isAdminPage && (
         <Login
           onClose={() => setShowLogin(false)}
           onLogin={(user) => {
@@ -70,7 +80,7 @@ function App() {
         />
       )}
 
-      {showRegister && (
+      {showRegister && !isAdminPage && (
         <Register
           onClose={() => setShowRegister(false)}
           onSwitchToLogin={() => {
@@ -87,18 +97,29 @@ function App() {
         <Route path="/myappointments" element={loggedIn && userType === "user" ? <MyAppointments username={username} /> : <Navigate to="/" />} />
         <Route path="/contact" element={<Contact />} />
 
-        {/* Admin Routes */}
-        <Route path="/admin" element={<AdminLogin onAdminLogin={(user, type) => {
-          setLoggedIn(true);
-          setUsername(user);
-          setUserType(type);
-          localStorage.setItem("username", user);
-          localStorage.setItem("userType", type);
-        }} />} />
+        <Route path="/admin" element={
+          <AdminLogin
+            onAdminLogin={(user, type) => {
+              setLoggedIn(true);
+              setUsername(user);
+              setUserType(type);
+              localStorage.setItem("username", user);
+              localStorage.setItem("userType", type);
+            }}
+          />
+        } />
         <Route path="/admin/dashboard" element={loggedIn && userType === "admin" ? <AdminDashboard /> : <Navigate to="/admin" />} />
 
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
+    </>
+  );
+}
+
+function App() {
+  return (
+    <Router>
+      <AppWrapper />
     </Router>
   );
 }

@@ -1,54 +1,93 @@
-.admin-dashboard {
-  padding: 20px;
-  max-width: 700px;
-  margin: auto;
+.admin-dashboard-table-container {
+  padding: 30px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #f9f9f9, #e2f3f5);
+  min-height: 100vh;
 }
 
-.appointment-card {
-  border: 1px solid #ccc;
-  padding: 15px;
-  margin-bottom: 20px;
-  border-radius: 8px;
-  background: #f9f9f9;
+.admin-dashboard-table-container h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 28px;
+  color: #222;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+.appointments-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: center;
+}
+
+.appointments-table th,
+.appointments-table td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #ccc;
+}
+
+.appointments-table th {
+  background-color: #2c3e50;
+  color: white;
+  font-weight: 600;
+}
+
+.appointments-table tr:nth-child(even) {
+  background-color: #f2f2f2;
 }
 
 .status-tag {
-  padding: 4px 10px;
-  border-radius: 5px;
-  margin-left: 10px;
-  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 8px;
+  font-weight: 600;
 }
 
 .status-tag.pending {
-  color: #b58900;
+  background-color: #fff3cd;
+  color: #856404;
 }
 
 .status-tag.accepted {
-  color: green;
+  background-color: #d4edda;
+  color: #155724;
 }
 
 .status-tag.rejected {
-  color: red;
+  background-color: #f8d7da;
+  color: #721c24;
 }
 
-.button-group {
-  margin-top: 10px;
-}
-
-.accept-btn, .reject-btn {
-  margin-right: 10px;
-  padding: 6px 12px;
+.accept-btn,
+.reject-btn {
+  padding: 6px 10px;
+  margin: 3px;
   border: none;
   border-radius: 5px;
+  font-weight: bold;
   cursor: pointer;
+  transition: 0.3s ease;
 }
 
 .accept-btn {
-  background-color: #4caf50;
+  background-color: #28a745;
   color: white;
 }
 
 .reject-btn {
-  background-color: #f44336;
+  background-color: #dc3545;
   color: white;
+}
+
+.accept-btn:hover {
+  background-color: #218838;
+}
+
+.reject-btn:hover {
+  background-color: #c82333;
 }

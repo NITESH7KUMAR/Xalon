@@ -1,6 +1,6 @@
-// src/components/admin/AdminLogin.jsx
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import {  FaUserTie } from "react-icons/fa";
 import "./admin.css";
 
 function AdminLogin({ onAdminLogin }) {
@@ -26,16 +26,16 @@ function AdminLogin({ onAdminLogin }) {
         onAdminLogin("admin", "admin");
         navigate("/admin/dashboard");
       } else {
-        alert("❌ Invalid admin credentials");
+        alert("Invalid admin credentials");
       }
     } catch (err) {
-      alert("⚠️ Error logging in as admin");
+      alert("Error logging in as admin");
     }
   };
 
   return (
     <div className="admin-login-container">
-      <h2>👨‍💼 Admin Login</h2>
+      <h2>< FaUserTie className="icon2" />Admin Login</h2>
       <form onSubmit={handleSubmit} className="admin-login-form">
         <input
           type="text"
@@ -51,7 +51,7 @@ function AdminLogin({ onAdminLogin }) {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-        <button type="submit">🔐 Login</button>
+        <button type="submit">Login</button>
       </form>
     </div>
   );

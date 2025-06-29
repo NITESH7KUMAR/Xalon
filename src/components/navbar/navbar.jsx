@@ -1,4 +1,3 @@
-// src/components/navbar/navbar.jsx
 import { Link, useNavigate } from "react-router-dom";
 import { FaHome } from "react-icons/fa";
 import "./navbar.css";
@@ -9,7 +8,6 @@ function Navbar({
   username,
   userType,
   onLoginClick,
-  onRegisterClick,
   onLogoutClick,
 }) {
   const navigate = useNavigate();
@@ -42,8 +40,7 @@ function Navbar({
 
           {!loggedIn && (
             <>
-              <button onClick={onLoginClick}>Login</button>
-              <button onClick={onRegisterClick}>Register</button>
+              <button onClick={onLoginClick}>Login/Signup</button>
               <li className="nav-links1">
                 <Link to="/admin">Admin</Link>
               </li>
@@ -57,9 +54,7 @@ function Navbar({
             <>
               <button onClick={onLogoutClick}>Logout</button>
               <li className="nav-links1 username">Hi, {username}</li>
-              <Link to="/home">
-                <FaHome className="icon" />
-              </Link>
+
             </>
           )}
 
@@ -71,7 +66,9 @@ function Navbar({
               </li>
             </>
           )}
-
+          <Link to="/home">
+                <FaHome className="icon" />
+            </Link>
           <li className="nav-links1">
             <Link to="/contact">Contact</Link>
           </li>

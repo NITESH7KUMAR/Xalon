@@ -1,37 +1,89 @@
 
-
-/* src/components/admin/adminLogin.css */
-
 .admin-login-container {
   max-width: 400px;
-  margin: 100px auto;
-  background: #ffffff;
-  padding: 30px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  border-radius: 8px;
+  margin: 60px auto;
+  padding: 80px;
+  background: linear-gradient(to bottom right, #3f87a6, #ebf8e1);
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
   text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  animation: fadeIn 0.5s ease-in;
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Heading Style */
+.admin-login-container h2 {
+  font-size: 38px;
+  margin-top: 1px;
+  margin-bottom: 25px;
+  color: #1b1f23;
+}
+.icon2{
+  font-size: 35px;
+  padding-right: 20px;
+  color: #9e3c03;
+}
+/* Input Fields */
 .admin-login-form input {
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
+  width: 80%;
+  padding: 12px;
+  margin-bottom: 20px;
+  border: 1px solid #be1111;
+  border-radius: 8px;
+  font-size: 15px;
+  transition: border 0.3s, box-shadow 0.3s;
 }
 
+.admin-login-form input:focus {
+  border-color: #cc00a3;
+  outline: none;
+  box-shadow: 0 0 6px rgba(0, 119, 204, 0.941);
+}
+
+/* Login Button */
 .admin-login-form button {
-  width: 100%;
-  padding: 10px;
-  background-color: #4caf50;
+  width: 30%;
+  padding: 12px;
+  background-color: #039e6a;
   color: white;
   border: none;
-  border-radius: 5px;
-  font-size: 16px;
+  border-radius: 8px;
+  font-size: 20px;
+  font-weight: bold;
   cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s;
 }
 
 .admin-login-form button:hover {
-  background-color: #45a049;
+  background-color: #005fa3;
+  transform: translateY(-1px);
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  .admin-login-container {
+    margin: 30px 15px;
+    padding: 20px;
+  }
+
+  .admin-login-container h2 {
+    font-size: 24px;
+  }
+
+  .admin-login-form input,
+  .admin-login-form button {
+    font-size: 14px;
+    padding: 10px;
+  }
 }
