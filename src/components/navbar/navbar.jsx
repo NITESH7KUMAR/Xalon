@@ -54,7 +54,9 @@ function Navbar({
             <>
               <button onClick={onLogoutClick}>Logout</button>
               <li className="nav-links1 username">Hi, {username}</li>
-
+              <Link to="/home">
+                <FaHome className="icon" />
+              </Link>
             </>
           )}
 
@@ -64,11 +66,11 @@ function Navbar({
               <li className="nav-links1">
                 <Link to="/admin/dashboard">Dashboard</Link>
               </li>
-            </>
-          )}
-          <Link to="/home">
+              <Link to="/home">
                 <FaHome className="icon" />
             </Link>
+            </>
+          )}
           <li className="nav-links1">
             <Link to="/contact">Contact</Link>
           </li>
