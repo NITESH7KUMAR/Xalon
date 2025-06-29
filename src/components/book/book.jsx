@@ -45,7 +45,7 @@ function BookPage() {
       });
 
       if (res.ok) {
-        alert("✅ Appointment booked successfully!");
+        alert("Appointment booked successfully!");
         setFormData({
           name: "",
           email: "",
@@ -57,7 +57,7 @@ function BookPage() {
         });
       } else {
         const errData = await res.json();
-        alert("❌ Booking failed! " + (errData?.message || ""));
+        alert("Booking failed! " + (errData?.message || ""));
       }
     } catch (err) {
       alert("Error: " + err.message);
